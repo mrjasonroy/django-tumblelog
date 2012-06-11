@@ -94,7 +94,7 @@ class Post(PostMetaMixin, models.Model):
     create aggregate querysets of all subclasses of BasePostType.
     """
     post_type = models.ForeignKey(ContentType)
-    object_id = models.PositiveIntegerField()
+    object_id = models.BigIntegerField()
     fields = generic.GenericForeignKey('post_type', 'object_id')
     author = models.ForeignKey(User, blank=True, null=True)
     slug = models.SlugField(_('Slug'),
